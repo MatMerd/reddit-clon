@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "redis_clone"
+version = "0.1.0"
+description = ""
+authors = ["Skirda Matvey <skirdamp@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.78.0"
+uvicorn = "^0.17.6"
+SQLAlchemy = "^1.4.36"
+pydantic = "^1.9.0"
+httpx = "^0.22.0"
+tenacity = "^8.0.1"
+psycopg2-binary = "^2.9.3"
+alembic = "^1.7.7"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+black = "^22.3.0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+bandit = "^1.7.4"
+safety = "^1.10.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
