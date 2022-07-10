@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+
+  postgres_db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    volumes:
+      - reddit-db-data:/var/lib/postgresql/data/pgdata
+    env_file:
+      - postgres.env
+    environment:
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  backend:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres_db
+
+volumes:
+  reddit-db-data:
